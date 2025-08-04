@@ -64,4 +64,4 @@ def test_create_new_account_with_different_password(create_account):
         data["password"],
         data["confirm_password"]
     )
-    create_account.error_passwords_different()
+    create_account.check_error_with_different_passwords('Please enter the same value again.')
