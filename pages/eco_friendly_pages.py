@@ -24,8 +24,6 @@ class EcoFriendly(BasePage):
         self.find_element(loc.PRODUCT).click()
         return product_name
 
-
-
     @allure.label('owner', 'Андрей')
     @allure.story('Страница товаров')
     @allure.step('Сортировка товаров по возрастанию цены')
