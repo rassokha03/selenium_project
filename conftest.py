@@ -3,6 +3,7 @@ from selenium import webdriver
 from pages.create_account_page import CreateAccount
 from pages.eco_friendly_pages import EcoFriendly
 from pages.sale_page import SalePage
+from pages.product_card_page import ProductCard
 #from selenium.webdriver.chrome.options import Options
 
 
@@ -30,3 +31,8 @@ def eco_friendly(driver):
 @pytest.fixture()
 def sale(driver):
     return SalePage(driver)
+
+
+@pytest.fixture()
+def product_card(driver):
+    return ProductCard(driver)

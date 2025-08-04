@@ -48,6 +48,6 @@ class CreateAccount(BasePage):
 
     @allure.story('Страница регистрации пользователя')
     @allure.step('Проверка на то, что пароли разные')
-    def error_passwords_different(self):
+    def check_error_with_different_passwords(self, text):
         error = self.find_element(loc.ERROR_PASSWORD)
-        assert error.text == 'Please enter the same value again.'
+        assert error.text == text
