@@ -4,18 +4,18 @@ from pages.create_account_page import CreateAccount
 from pages.eco_friendly_pages import EcoFriendly
 from pages.sale_page import SalePage
 from selenium.webdriver.chrome.options import Options
-import allure
-from allure_commons.types import AttachmentType
+
 
 
 @pytest.fixture(scope='function')
 def driver():
-    options = Options()
-    options.add_argument('--headless')
-    options.add_argument('window-size=1920,1080')
-    driver = webdriver.Chrome(options=options)
+    # options = Options()
+    # options.add_argument('--headless')
+    # options.add_argument('window-size=1920,1080')
+    # driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome()
+    driver.maximize_window()
     yield driver
-    allure.attach(driver.get_screenshot_as_png(), name='Screenshot', attachment_type=AttachmentType)
     driver.quit()
 
 
