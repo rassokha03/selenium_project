@@ -19,12 +19,10 @@ class EcoFriendly(BasePage):
     @allure.label('owner', 'Андрей')
     @allure.story('Страница товаров')
     @allure.step('Открытие карточки товара')
-    def check_open_card_product(self):
+    def open_card_product(self):
         product_name = self.find_element(loc.PRODUCT).text
         self.find_element(loc.PRODUCT).click()
-        product_header = self.find_element(loc.PRODUCT_HEADER).text
-        product_name_in_card = self.find_element(loc.PRODUCT_NAME_IN_CARD).text
-        assert product_name == product_header == product_name_in_card
+        return product_name
 
     @allure.label('owner', 'Андрей')
     @allure.story('Страница товаров')

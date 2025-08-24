@@ -3,6 +3,8 @@ from selenium import webdriver
 from pages.create_account_page import CreateAccount
 from pages.eco_friendly_pages import EcoFriendly
 from pages.sale_page import SalePage
+from pages.product_card_page import ProductCard
+#from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.options import Options
 
 
@@ -11,7 +13,6 @@ from selenium.webdriver.chrome.options import Options
 def driver():
     # options = Options()
     # options.add_argument('--headless')
-    # options.add_argument('window-size=1920,1080')
     # driver = webdriver.Chrome(options=options)
     driver = webdriver.Chrome()
     driver.maximize_window()
@@ -32,3 +33,8 @@ def eco_friendly(driver):
 @pytest.fixture()
 def sale(driver):
     return SalePage(driver)
+
+
+@pytest.fixture()
+def product_card(driver):
+    return ProductCard(driver)
