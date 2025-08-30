@@ -32,9 +32,9 @@ jobs:
           python-version: '3.13'
       - name: Install dependencies.
         run: pip install -r requirements.txt
-      - name: run all tests --alluredir=allure-results
+      - name: run all tests 
         if: "github.event.inputs.deployment_target == 'all'"
-        run: pytest 
+        run: pytest --alluredir=allure-results
         continue-on-error: true
       - name: run create_account_page tests
         if: "github.event.inputs.deployment_target == 'create_account_page'"
