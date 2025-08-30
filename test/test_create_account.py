@@ -1,3 +1,7 @@
+import pytest
+
+
+@pytest.mark.create_account_page
 def test_create_new_account(create_account):
     data = {
         "first name": 'Джонни',
@@ -22,6 +26,7 @@ def test_create_new_account(create_account):
                                              create_email=email)
 
 
+@pytest.mark.create_account_page
 def test_create_new_account_with_registered_email(create_account):
     data = {
         "first name": 'Test',
@@ -46,6 +51,7 @@ def test_create_new_account_with_registered_email(create_account):
         'click here to get your password and access your account.')
 
 
+@pytest.mark.create_account_page
 def test_create_new_account_with_different_password(create_account):
     data = {
         "first name": 'Бред',
