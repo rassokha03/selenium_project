@@ -32,21 +32,21 @@ jobs:
           python-version: '3.13'
       - name: Install dependencies.
         run: pip install -r requirements.txt
-      - name: run all tests
+      - name: run all tests --alluredir=allure-results
         if: "github.event.inputs.deployment_target == 'all'"
         run: pytest 
         continue-on-error: true
       - name: run create_account_page tests
         if: "github.event.inputs.deployment_target == 'create_account_page'"
-        run: pytest -m create_account_page 
+        run: pytest -m create_account_page --alluredir=allure-results
         continue-on-error: true
       - name: run eco_friendly_page tests
         if: "github.event.inputs.deployment_target == 'eco_friendly_page'"
-        run: pytest -m eco_friendly_page 
+        run: pytest -m eco_friendly_page --alluredir=allure-results
         continue-on-error: true
       - name: run sale_page tests
         if: "github.event.inputs.deployment_target == 'sale_page'"
-        run: pytest -m sale_page 
+        run: pytest -m sale_page --alluredir=allure-results
         continue-on-error: true
       - name: Install Java
         uses: actions/setup-java@v4
@@ -55,9 +55,9 @@ jobs:
           java-version: '17'
       - name: Install Allure
         run: |
-         sudo wget https://github.com/allure-framework/allure2/releases/download/2.34.1/allure-2.34.1.tgz
-         sudo tar -zxvf allure-2.34.1.tgz -C /opt
-         sudo ln -s /opt/allure-2.34.1/bin/allure /usr/bin/allure
+         sudo wget https://github.com/allure-framework/allure2/releases/download/2.34.0/allure-2.34.0.tgz
+         sudo tar -zxvf allure-2.34.0.tgz -C /opt
+         sudo ln -s /opt/allure-2.34.0/bin/allure /usr/bin/allure
       - name: Generate report
         run: allure generate -c allure-results -o _site
       - name: Save allure report
