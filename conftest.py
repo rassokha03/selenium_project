@@ -5,8 +5,7 @@ from pages.eco_friendly_pages import EcoFriendly
 from pages.sale_page import SalePage
 from pages.product_card_page import ProductCard
 from selenium.webdriver.chrome.options import Options
-import allure
-from allure_commons.types import AttachmentType
+
 
 
 
@@ -19,7 +18,6 @@ def driver():
     options.add_argument('window-size=1920,1080')
     driver = webdriver.Chrome(options=options)
     yield driver
-    allure.attach(driver.get_screenshot_as_png(), name='Screenshot', attachment_type=AttachmentType)
     driver.quit()
 
 
