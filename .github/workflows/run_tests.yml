@@ -34,19 +34,19 @@ jobs:
         run: pip install -r requirements.txt
       - name: run all tests
         if: "github.event.inputs.deployment_target == 'all'"
-        run: pytest --alluredir=allure-results
+        run: pytest 
         continue-on-error: true
       - name: run create_account_page tests
         if: "github.event.inputs.deployment_target == 'create_account_page'"
-        run: pytest -m create_account_page --alluredir=allure-results
+        run: pytest -m create_account_page 
         continue-on-error: true
       - name: run eco_friendly_page tests
         if: "github.event.inputs.deployment_target == 'eco_friendly_page'"
-        run: pytest -m eco_friendly_page --alluredir=allure-results
+        run: pytest -m eco_friendly_page 
         continue-on-error: true
       - name: run sale_page tests
         if: "github.event.inputs.deployment_target == 'sale_page'"
-        run: pytest -m sale_page --alluredir=allure-results
+        run: pytest -m sale_page 
         continue-on-error: true
       - name: Install Java
         uses: actions/setup-java@v4
